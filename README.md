@@ -64,8 +64,6 @@ To view the frontend please refer to the frontend repo by clicking [HERE](https:
 4. Start the development server:
 
 ```bash
-Copy
-Edit
 npm run dev
 ```
 The server should start on the specified PORT (default is 5000 or 5001).
