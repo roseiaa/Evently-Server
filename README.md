@@ -54,8 +54,6 @@ To view the frontend please refer to the frontend repo by clicking [HERE](https:
 2. Install dependencies:
 
   ```bash
-  Copy
-  Edit
   npm install
   ```
 3. Add your .env file with the required environment variables listed above.
