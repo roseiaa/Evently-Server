@@ -1,5 +1,7 @@
 const jwt = require("jsonwebtoken");
 
+
+//Checks if user is validated to enter the website
 const validateToken = (req, res, next) => {
     try {
         const token = req.cookies.token;

@@ -62,7 +62,7 @@ router.get("/current", validateToken, async (req, res) => {
         return res.status(500).json({ message: error.message });
     }
 });
-
+//Get all users (Admin Function)
 router.get("/get-all-users", validateToken, async (req, res) => {
     try {
         const users = await User.find().select("-password").sort({ createdAt: -1 });

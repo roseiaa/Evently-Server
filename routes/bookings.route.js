@@ -14,7 +14,6 @@ router.post("/create-booking", validateToken, async (req, res) => {
 
     //update ticket quantity
     const event = await EventModel.findById(req.body.event);
-    console.log(event)
     const ticketType = event.tickets;
     const updatedTickets = ticketType.map((ticket) => {
       if (ticket.name === req.body.ticketType) {
@@ -38,6 +37,7 @@ router.post("/create-booking", validateToken, async (req, res) => {
 
 router.get("/get-user-bookings", validateToken, async (req, res) => {
   try {
+    //get bookings for a single user
     const bookings = await BookingModel.find({ user: req.user.userId }).populate("event");
     return res.status(200).json({ data: bookings });
   } catch (error) {
@@ -47,6 +47,7 @@ router.get("/get-user-bookings", validateToken, async (req, res) => {
 
 router.get("/get-all-bookings", async (req, res) => {
   try {
+    //get booking information for all users
     const bookings = await BookingModel.find().populate("event").populate("user").sort({ createdAt: -1 });
     return res.status(200).json({ data: bookings });
   } catch (error) {

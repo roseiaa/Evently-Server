@@ -5,6 +5,7 @@ const validateToken = require("../middleware/validateToken");
 
 router.post("/create-payment-intent", validateToken, async (req, res) => {
   try {
+    //Creats Payment Reference information for Stripe
     const paymentIntent = await stripe.paymentIntents.create({
       amount: req.body.amount * 100,
       currency: "gbp",
